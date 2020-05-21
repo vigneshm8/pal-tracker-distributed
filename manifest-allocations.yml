@@ -1,0 +1,14 @@
+applications:
+- name: tracker-allocations
+  path: ./applications/allocations-server/build/libs/allocations-server.jar
+  routes:
+  - route: allocations-pal-tracker-distributed-vigneshm8.cfapps.io
+  memory: 1G
+  instances: 1
+  env:
+    REGISTRATION_SERVER_ENDPOINT: http://allocations-pal-tracker-distributed-vigneshm8.cfapps.io
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+  services:
+  - tracker-allocations-database
+
+  
