@@ -33,22 +33,20 @@ public class ApplicationServer {
     }
 
     public void startWithDatabaseName(String dbName) throws IOException, InterruptedException {
-      String dbUrl = "jdbc:mysql://localhost:3306/" + dbName + "?useSSL=false&useTimezone=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
+        String dbUrl = "jdbc:mysql://localhost:3306/" + dbName + "?useSSL=false&useTimezone=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
 
-      start(envMapBuilder()
-          .put("SPRING_DATASOURCE_URL", dbUrl)
-         .put("REGISTRATION_SERVER_ENDPOINT", "http://localhost:8883")
-         .put("EUREKA_CLIENT_ENABLED", "false")
-         .put("RIBBON_EUREKA_ENABLED", "false")
-         .put("REGISTRATION_SERVER_RIBBON_LISTOFSERVERS", "http://localhost:8883")
-          .build()
-      );
-  }
+        start(envMapBuilder()
+            .put("SPRING_DATASOURCE_URL", dbUrl)
+            .put("EUREKA_CLIENT_ENABLED", "false")
+            .put("RIBBON_EUREKA_ENABLED", "false")
+            .put("REGISTRATION_SERVER_RIBBON_LISTOFSERVERS", "http://localhost:8883")
+            .build()
+        );
+    }
 
     public void stop() {
         serverProcess.destroyForcibly();
     }
-
 
     public static void waitOnPorts(String... ports) throws InterruptedException {
         for (String port : ports) waitUntilServerIsUp(port);

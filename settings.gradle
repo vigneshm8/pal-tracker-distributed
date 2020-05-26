@@ -4,8 +4,6 @@ include "applications:allocations-server"
 include "applications:backlog-server"
 include "applications:registration-server"
 include "applications:timesheets-server"
-include "platform-services:eureka-server"
-
 
 include "components:accounts"
 include "components:allocations"
@@ -23,3 +21,5 @@ include "databases:registration-database"
 include "databases:timesheets-database"
 
 include "integration-test"
+
+include "platform-services:eureka-server"
