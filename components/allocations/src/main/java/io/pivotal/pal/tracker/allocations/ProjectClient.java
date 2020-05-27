@@ -20,11 +20,7 @@ public class ProjectClient {
         this.endpoint = registrationServerEndpoint;
     }
 
-    //public ProjectInfo getProject(long projectId) {
-    //    return restOperations.getForObject(registrationServerEndpoint + "/projects/" + projectId, ProjectInfo.class);
-    // }
-	
-	 @CircuitBreaker(name = "project", fallbackMethod = "getProjectFromCache")
+    @CircuitBreaker(name = "project", fallbackMethod = "getProjectFromCache")
     public ProjectInfo getProject(long projectId) {
         ProjectInfo project = restOperations.getForObject(endpoint + "/projects/" + projectId, ProjectInfo.class);
 
@@ -32,8 +28,8 @@ public class ProjectClient {
 
         return project;
     }
-	
-	public ProjectInfo getProjectFromCache(long projectId, Throwable cause) {
+
+    public ProjectInfo getProjectFromCache(long projectId, Throwable cause) {
         logger.info("Getting project with id {} from cache", projectId);
         return projectsCache.get(projectId);
     }

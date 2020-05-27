@@ -13,13 +13,14 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry"
+    // Bring in support for legacy OAuth autoconfiguration
+    // See https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide#oauth2
+    compile "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:$springSecurityOAuthAutoconfigVersion"
+    compile "io.pivotal.spring.cloud:spring-cloud-sso-connector:$springCloudSsoVersion"
 
     compile "com.zaxxer:HikariCP:$hikariVersion"
     compile "mysql:mysql-connector-java:$mysqlVersion"
     compile "ch.qos.logback:logback-classic:$logbackVersion"
-
-    compile "org.springframework.boot:spring-boot-starter-actuator"
-    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry"
 
     testCompile project(":components:test-support")
 }

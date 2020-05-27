@@ -12,4 +12,3 @@ applications:
   - tracker-backlog-database
   - tracker-service-registry
   - tracker-sso
-  

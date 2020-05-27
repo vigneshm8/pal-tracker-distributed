@@ -2,5 +2,4 @@ apply from: "$projectDir/../server.gradle"
 
 dependencies {
     compile project(":components:timesheets")
-    compile "io.github.resilience4j:resilience4j-spring-boot2:1.2.0"
 }
