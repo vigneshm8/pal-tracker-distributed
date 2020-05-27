@@ -19,6 +19,8 @@ buildscript {
         springCloudVersion = "Finchley.SR2"
         springCloudServicesClientLibrariesVersion = "2.0.2.RELEASE"
         springCloudCommonsVersion = "2.0.0.RELEASE"
+		springSecurityOAuthAutoconfigVersion = "2.1.0.RELEASE"
+		springCloudSsoVersion = "2.1.3.RELEASE"
     }
 
     repositories {
